@@ -1,0 +1,38 @@
+{
+  "name": "𝐀𝐋𝐈𝚵𝐍™ 𝐗 𝐌𝐔𝐒𝐈𝐂",
+  "description": "Bot To Play Songs In TELEGRAM Group Voice Chats. POWERED By PYTGCALLS.",
+  "keywords": ["Music", "Voicechat", "Telegram"],
+  "logo": "https://telegra.ph/file/4640830ff2afad6e14419.jpg",
+  "repository": "https://github.com/Legend-Mukund/Song",
+  "stack": "container",
+  "env": {
+    "SESSION_NAME": {
+      "description": "Pyrogram Session String Get From https://my.telegram.org/auth",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "A Bot Token From @BotFather",
+      "required": true
+    },
+    "BOT_USERNAME": {
+      "description": "Your Bot Username Without @ ,Get From @BotFather",
+      "required": true,
+      "value": "ALIEN_MUSIC_ROBOT"
+    },
+    "API_ID": {
+      "description": "API_ID from my.telegram.org/apps",
+      "required": true,
+      "value": "14621169"
+    },
+    "API_HASH": {
+      "description": "API_HASH from my.telegram.org/apps",
+      "required": true,
+      "value": "61e480d82ff09acbf967ccea4fa2884f"
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram ID",
+      "required": true,
+      "value": "2006619406"
+    }
+  }
+}

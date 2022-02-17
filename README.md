@@ -37,13 +37,15 @@
 | ------ | ------ |
 | `/play (query)` | play music from youtube | |
 | `/vplay (query)` | play video from youtube |
-| `/vstream (live link)` | play video live streaming video |
+| `/join` | To invite assistant |
 | `/pause` | pause the streaming (admin only) |
 | `/resume` | resume the streaming (admin only) |
 | `/skip` | switch to next stream (admin only) |
-| `/stop` | end the streaming (admin only) |
+| `/end` | end the streaming (admin only) |
 | `/mute` | for mute the userbot on voice chat |
 | `/unmute` | for unmute the userbot on voice chat |
+| `/playlist` | Show You The Playlist |
+| `/restart` | Restart The Bot |
 
 ## SPECIAL THANKS TO 
 

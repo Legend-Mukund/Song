@@ -24,7 +24,7 @@
       "required": true,
       "value": "14621169"
     },
-    "OWNER": {
+    "OWNER_USERNAME": {
       "description": "USERNAME OF THE OWNER WITHOUT @",
       "required": true,
       "value": "LEGEND_MUKUND"

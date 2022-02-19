@@ -37,8 +37,6 @@ app = PyTgCalls(client)
 
 OWNER_ID = int(os.environ["OWNER_ID"])
 
-OWNER_USERNAME = int(os.environ["OWNER_USERNAME"])
-
 BOT_USERNAME = os.environ["BOT_USERNAME"]
 
 LIVE_CHATS = []
@@ -205,7 +203,7 @@ async def cbcmds(_, query: CallbackQuery):
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
-    await message.reply_photo(photo="https://telegra.ph/file/4640830ff2afad6e14419.jpg",
+    await message.reply_photo(photo="https://telegra.ph/file/627687ce58e86137aa635.jpg",
                              caption = msg,
                              reply_markup = START_BUTTONS)
     
@@ -227,7 +225,7 @@ async def join_chat(c: Client, m: Message):
 
 @bot.on_message(filters.command("start") & filters.group)
 async def start_group(_, message):
-    await message.reply_photo(photo="https://telegra.ph/file/4640830ff2afad6e14419.jpg",
+    await message.reply_photo(photo="https://telegra.ph/file/627687ce58e86137aa635.jpg",
                               caption = f"Hello 🦋 {message.from_user.mention} 🎧 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠.",
                               reply_markup = BUTTONS)
 

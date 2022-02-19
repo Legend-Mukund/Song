@@ -37,7 +37,7 @@ app = PyTgCalls(client)
 
 OWNER_ID = int(os.environ["OWNER_ID"])
 
-OWNER_USERNAME = os.environ["OWNER_USERNAME"])
+OWNER_USERNAME = int(os.environ["OWNER_USERNAME"])
 
 BOT_USERNAME = os.environ["BOT_USERNAME"]
 

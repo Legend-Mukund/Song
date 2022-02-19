@@ -24,6 +24,11 @@
       "required": true,
       "value": "14621169"
     },
+    "OWNER": {
+      "description": "USERNAME OF THE OWNER WITHOUT @",
+      "required": true,
+      "value": "LEGEND_MUKUND"
+    },
     "API_HASH": {
       "description": "API_HASH from my.telegram.org/apps",
       "required": true,

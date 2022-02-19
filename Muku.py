@@ -55,7 +55,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("𝐇𝚵𝐋𝐏 🔐", callback_data="cbcmds"),
-            InlineKeyboardButton("𝐎𝐖𝐍𝚵𝐑 ✨", url="https://t.me/LEGEND_MUKUND")
+            InlineKeyboardButton("𝐎𝐖𝐍𝚵𝐑 ✨", url="https://t.me/{OWNER_ID}")
         ],
         [
             InlineKeyboardButton("🧞‍ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓♂ ", url="https://t.me/ALIEN_X_SUPPORT"),

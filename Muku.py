@@ -37,7 +37,7 @@ app = PyTgCalls(client)
 
 OWNER_ID = int(os.environ["OWNER_ID"])
 
-OWNER = os.environ["OWNER"])
+OWNER_USERNAME = os.environ["OWNER_USERNAME"])
 
 BOT_USERNAME = os.environ["BOT_USERNAME"]
 
@@ -57,7 +57,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("𝐇𝚵𝐋𝐏 🔐", callback_data="cbcmds"),
-            InlineKeyboardButton("𝐎𝐖𝐍𝚵𝐑 ✨", url="https://t.me/{OWNER}")
+            InlineKeyboardButton("𝐎𝐖𝐍𝚵𝐑 ✨", url="https://t.me/{OWNER_USERNAME}")
         ],
         [
             InlineKeyboardButton("🧞‍ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓♂ ", url="https://t.me/ALIEN_X_SUPPORT"),

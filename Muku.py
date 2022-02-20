@@ -70,15 +70,11 @@ START_BUTTONS = InlineKeyboardMarkup(
 BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("⏸", callback_data="pause"),
-            InlineKeyboardButton("▶️", callback_data="resume"),
-            InlineKeyboardButton("⏭", callback_data="skip"),
-            InlineKeyboardButton("⏹", callback_data="stop"),
-            InlineKeyboardButton("🔇", callback_data="mute"),
-            InlineKeyboardButton("🔊", callback_data="unmute")
+            InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ABOUT_MUKUND/15"),
+            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_UPDATE")
         ],
         [
-            InlineKeyboardButton("🗑 Close Menu", callback_data="close")
+            InlineKeyboardButton("𝐆𝐈𝐕𝐄 𝐌𝐄 𝐇𝚵𝐀𝐑𝐓 ❤️", url="https://t.me/ABOUT_MUKUND/15")
         ]
     ]
 )

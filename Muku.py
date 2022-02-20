@@ -55,10 +55,10 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("𝐇𝚵𝐋𝐏 🔐", callback_data="cbcmds"),
-            InlineKeyboardButton("𝐌𝚵𝐌𝚵𝐒 ✨", url="https://t.me/Sharedsecrets")
+            InlineKeyboardButton("𝐑𝚵𝐏𝐎 ✨", url="https://github.com/Legend-Mukund/Song")
         ],
         [
-            InlineKeyboardButton("🧞‍ 𝐒𝐔𝐏𝐏𝐎𝐑𝐓♂ ", url="https://t.me/ALIEN_X_SUPPORT"),
+            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_SUPPORT"),
             InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ALIEN_X_UPDATE")
         ],
         [
@@ -70,8 +70,15 @@ START_BUTTONS = InlineKeyboardMarkup(
 BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="• 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 •", url="https://t.me/ALIEN_X_SUPPORT"),
-            InlineKeyboardButton(text="• 𝐔𝐏𝐃𝐀𝐓𝐄𝐒 •", url="https://t.me/ALIEN_X_UPDATE")
+            InlineKeyboardButton("⏸", callback_data="pause"),
+            InlineKeyboardButton("▶️", callback_data="resume"),
+            InlineKeyboardButton("⏭", callback_data="skip"),
+            InlineKeyboardButton("⏹", callback_data="stop"),
+            InlineKeyboardButton("🔇", callback_data="mute"),
+            InlineKeyboardButton("🔊", callback_data="unmute")
+        ],
+        [
+            InlineKeyboardButton("🗑 Close Menu", callback_data="close")
         ]
     ]
 )

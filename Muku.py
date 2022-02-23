@@ -243,7 +243,7 @@ async def video_play(_, message):
     except:
         return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
-    m = await message.reply_text("🔄 Processing...")
+    m = await message.reply_text("🔍")
     if state == "play":
         damn = AudioPiped
         ded = yt_audio

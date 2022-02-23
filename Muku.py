@@ -70,8 +70,8 @@ START_BUTTONS = InlineKeyboardMarkup(
 BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ABOUT_MUKUND/15"),
-            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_UPDATE")
+            InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ALIEN_X_UPDATE"),
+            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_SUPPORT")
         ],
         [
             InlineKeyboardButton("𝐆𝐈𝐕𝐄 𝐌𝐄 𝐇𝚵𝐀𝐑𝐓 ❤️", url="https://t.me/ABOUT_MUKUND/15")

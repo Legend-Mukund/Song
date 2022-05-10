@@ -70,9 +70,8 @@
 
 > ᴘʏʀᴏɢʀᴀᴍ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ʀᴇQᴜɪʀᴇᴅ
     
-<h4> ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ᴅᴇᴘʟᴏʏ ᴀʟɪᴇɴ x ᴏɴ ʜᴇʀᴏᴋᴜ</h4>    
-<p><a href="https://dashboard.heroku.com/new?template=https://github.com/Legend-Mukund/Song"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=for-the-badge&logo=heroku" width="200"/></a></p>
-    
+Dᴏɴ'ᴛ Dᴇᴘʟᴏʏ Nᴏᴡ Sᴏᴍᴇ Wᴏʀᴋ Is Gᴏɪɴɢ Tᴏ Bᴇ Dɴ Sᴏᴏɴ
+  
 </details>
 
 

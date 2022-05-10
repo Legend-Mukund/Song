@@ -39,6 +39,8 @@ OWNER_ID = int(os.environ["OWNER_ID"])
 
 BOT_USERNAME = os.environ["BOT_USERNAME"]
 
+OWNER_USERNAME = os.environ["OWNER_USERNAME"]
+
 LIVE_CHATS = []
 
 START_TEXT = """
@@ -74,7 +76,7 @@ BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_SUPPORT")
         ],
         [
-            InlineKeyboardButton("𝐆𝐈𝐕𝐄 𝐌𝐄 𝐇𝚵𝐀𝐑𝐓 ❤️", url="https://t.me/ABOUT_MUKUND/15")
+            InlineKeyboardButton("Oᴡɴᴇʀ ⚡", url="https://t.me/{OWNER_USERNAME}")
         ]
     ]
 )

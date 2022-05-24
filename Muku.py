@@ -39,8 +39,6 @@ OWNER_ID = int(os.environ["OWNER_ID"])
 
 BOT_USERNAME = os.environ["BOT_USERNAME"]
 
-OWNER_USERNAME = os.environ["OWNER_USERNAME"]
-
 LIVE_CHATS = []
 
 @client.on_message(filters.command("alive") & filters.me) 

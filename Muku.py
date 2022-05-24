@@ -73,7 +73,7 @@ START_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
-	BUTTONS = InlineKeyboardMarkup(
+BUTTONS = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton("▷", callback_data="resume"),

@@ -43,6 +43,11 @@ OWNER_USERNAME = os.environ["OWNER_USERNAME"]
 
 LIVE_CHATS = []
 
+@client.on_message(filters.command(["alive", "mukund"], prefixes=f"{BOT_PREFIX}") & filters.me) 
+async def alive(client, mukund):
+    Mukund = "╭✠╼━━━━━━❖━━━━━━━✠ \n 》𝗬𝗘𝗦 𝗜 𝗔𝗠 𝗔𝗟𝗜𝗩𝗘 💥🔥 \n 》𝗨𝗦𝗘𝗥𝗕𝗢𝗧 : ⲘⴑⲔⴑⲚⲆ \n 》𝗨𝗕 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 : 𝘃𝟬.𝟭 \n 》𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 : 𝘃𝟭.𝟰.𝟭𝟱 \n╰✠╼━━━━━━❖━━━━━━━✠""
+    await mukund.edit_text(Mukund)
+
 START_TEXT = """
 ━━━━━━━━━━━━━━━━━━━━━━━━
 💥 𝙃𝙚𝙡𝙡𝙤, 𝙄 𝘼𝙢 𝐀𝐋𝐈𝚵𝐍™ 𝐗 𝐌𝐔𝐒𝐈𝐂
@@ -209,8 +214,7 @@ async def cbcmds(_, query: CallbackQuery):
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_sticker("CAACAgUAAxkBAAEBDSBic69AvlMrYiRkFjo9aMVfEiiDLgACgQUAAi0gWVRq19A_wqypQSQE")
-    await message.reply_photo(photo="https://telegra.ph/file/627687ce58e86137aa635.jpg",
-                             caption = msg,
+    await message.reply_text(caption = msg,
                              reply_markup = START_BUTTONS)
     
 

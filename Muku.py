@@ -43,7 +43,7 @@ OWNER_USERNAME = os.environ["OWNER_USERNAME"]
 
 LIVE_CHATS = []
 
-@client.on_message(filters.command(["alive", "mukund"], prefixes=f"{BOT_PREFIX}") & filters.me) 
+@client.on_message(filters.command("alive") & filters.me) 
 async def alive(client, mukund):
     await mukund.edit_text("╭✠╼━━━━━━❖━━━━━━━✠ \n 》𝗬𝗘𝗦 𝗜 𝗔𝗠 𝗔𝗟𝗜𝗩𝗘 💥🔥 \n 》𝗨𝗦𝗘𝗥𝗕𝗢𝗧 : ⲘⴑⲔⴑⲚⲆ \n 》𝗨𝗕 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 : 𝘃𝟬.𝟭 \n 》𝗣𝗬𝗥𝗢𝗚𝗥𝗔𝗠 𝗩𝗘𝗥𝗦𝗜𝗢𝗡 : 𝘃𝟭.𝟰.𝟭𝟱 \n╰✠╼━━━━━━❖━━━━━━━✠")
 
@@ -73,14 +73,16 @@ START_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
-BUTTONS = InlineKeyboardMarkup(
+	BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ALIEN_X_UPDATE"),
-            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_SUPPORT")
+            InlineKeyboardButton("▷", callback_data="resume"),
+            InlineKeyboardButton("II", callback_data="pause"),
+            InlineKeyboardButton("‣‣I", callback_data="skip"),
+            InlineKeyboardButton("▢", callback_data="end"),
         ],
         [
-            InlineKeyboardButton("Oᴡɴᴇʀ ⚡", url="https://t.me/{OWNER_USERNAME}")
+            InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
         ]
     ]
 )

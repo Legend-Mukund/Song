@@ -60,7 +60,9 @@
     
 > ʏᴏᴜ'ʟʟ ɴᴇᴇᴅ ᴀ ᴀᴘɪ_ɪᴅ & ᴀᴘɪ_ʜᴀsʜ ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏɢʀᴀᴍ sᴇssɪᴏɴ. 
 > ᴀʟᴡᴀʏs ʀᴇᴍᴇʙᴇʀ ᴛᴏ ᴜsᴇ ɢᴏᴏᴅ ᴀᴘɪ ᴄᴏᴍʙᴏ ᴇʟsᴇ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ᴄᴏᴜʟᴅ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.
-> ᴜꜱᴇ ᴛʜɪꜱ ʙᴏᴛ ᴛᴏ ɢᴇɴᴇᴛʀᴀᴛᴇ ᴛʜᴇ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ʏᴏᴜʀ ᴏᴡɴ ꜱᴏᴜʀᴄᴇꜱ [sᴛʀɪɴɢ sᴇssɪᴏɴ](https://t.me/StringGeneratorRobot)
+> ᴜꜱᴇ ᴛʜɪꜱ ʙᴏᴛ ᴛᴏ ɢᴇɴᴇᴛʀᴀᴛᴇ ᴛʜᴇ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ᴏʀ ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ʏᴏᴜʀ ᴏᴡɴ ꜱᴏᴜʀᴄᴇꜱ [sᴛʀɪɴɢ sᴇssɪᴏɴ](https://replit.com/@FAKEMUKUND/Pyrogram)
+  
+<p align="center"><a href="https://replit.com/@FAKEMUKUND/Pyrogram"> <img src="https://img.shields.io/badge/String%20Session-black?style=for-the-badge&logo=replit" width="220" height="38.45"/></a></p>  
     
 </details>
 

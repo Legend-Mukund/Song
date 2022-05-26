@@ -1,4 +1,4 @@
-pyrogram==1.4.15
+pyrogram==1.4.16
 tgcrypto
 py-tgcalls
 youtube_search

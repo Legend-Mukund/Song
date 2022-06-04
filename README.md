@@ -1,6 +1,6 @@
 <h1 align = "center"> ⚡ 𝐓𝐡𝐞 𝐌𝐨𝐬𝐭 𝐏𝐨𝐰𝐞𝐫𝐟𝐮𝐥𝐥 𝐌𝐔𝐒𝐈𝐂 𝐁𝐎𝐓⚡
   
-<h4 align="center"> 𝐀 𝐏𝐎𝐖𝐄𝐑𝐅𝐔𝐋 𝐒𝐏𝐀𝐌 𝐔𝐒𝐄𝐑𝐁𝐎𝐓𝐒 𝐌𝐀𝐃𝐄 𝐅𝐎𝐑 𝐒𝐏𝐀𝐌𝐌𝐄𝐑𝐒 <br> ... Written With Python and Pytgcalls</h4>
+<h4 align="center">Written With Python and Pytgcalls..</h4>
 
 <p align="center"><a href="https://t.me/LEGEND_MUKUND"><img src="https://telegra.ph/file/3f4761dc05024faa00f61.jpg" width="400"></a></p>
 

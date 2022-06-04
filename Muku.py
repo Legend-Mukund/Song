@@ -584,7 +584,7 @@ ALIVE_TEXT = """
 [»] ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ : `1.4.16`
 
 """
-@bot.on_message(filter.command("alive"))
+@bot.on_message(filters.command("alive"))
 async def alive(_, message):
     user_id = message.from_user.id
     if user_id != OWNER_ID:

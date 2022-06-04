@@ -392,13 +392,13 @@ async def callbacks(_, cq: CallbackQuery):
             await cq.answer("[»] sᴋɪᴘᴘᴇᴅ.")
 
 @bot.on_message(filters.command("help") & filters.private)
-async def start_private(_, message):
+async def help_private(_, message):
     msg = HELP_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
                              reply_markup = MUKUND_MUSIC)            
 
 @bot.on_message(filters.command("help") & filters.group)
-async def start_private(_, message):
+async def help(_, message):
     msg = HELP_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
                              reply_markup = MUKUND_MUSIC)  
@@ -411,7 +411,7 @@ async def start_private(_, message):
                              reply_markup = START_BUTTONS)
 
 @bot.on_message(filters.command("start") & filters.group)
-async def start_private(_, message):
+async def start(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_sticker("CAACAgUAAxkBAAEBDSBic69AvlMrYiRkFjo9aMVfEiiDLgACgQUAAi0gWVRq19A_wqypQSQE")
     await message.reply_text(text = msg,

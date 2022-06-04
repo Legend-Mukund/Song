@@ -70,6 +70,23 @@ START_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
+START_LUL = [
+    [ 
+        InlineKeyboardButton("ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+    ],
+    [ 
+        InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help_back"),
+        InlineKeyboardButton("ʀᴇᴘᴏ", callback_data="repo"),
+    ],
+    [ 
+        InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
+        InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ", url="https://t.me/ALIEN_X_SUPPORT"),
+    ],
+    [ 
+        InlineKeyboardButton("ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ", url="https://t.me/ABOUT_MUKUND/15"),
+    ],    
+]
+
 BUTTON = InlineKeyboardMarkup(
     [
         [
@@ -203,7 +220,7 @@ def home(Client, CallbackQuery):
     if CallbackQuery.data == "mukund":
         CallbackQuery.edit_message_text(
             START_TEXT,
-            reply_markup = InlineKeyboardMarkup(START_BUTTONS)
+            reply_markup = InlineKeyboardMarkup(START_LUL)
         )
     elif CallbackQuery.data == "repo":
         CallbackQuery.edit_message_text(

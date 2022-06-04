@@ -1,8 +1,8 @@
 <h1 align = "center"> ⚡ 𝐓𝐡𝐞 𝐌𝐨𝐬𝐭 𝐏𝐨𝐰𝐞𝐫𝐟𝐮𝐥𝐥 𝐌𝐔𝐒𝐈𝐂 𝐁𝐎𝐓⚡
   
-<h4 align="center"> 𝐀 𝐏𝐎𝐖𝐄𝐑𝐅𝐔𝐋 𝐒𝐏𝐀𝐌 𝐔𝐒𝐄𝐑𝐁𝐎𝐓𝐒 𝐌𝐀𝐃𝐄 𝐅𝐎𝐑 𝐒𝐏𝐀𝐌𝐌𝐄𝐑𝐒 <br> ... Written With Python and pytgcalls</h4>
+<h4 align="center"> 𝐀 𝐏𝐎𝐖𝐄𝐑𝐅𝐔𝐋 𝐒𝐏𝐀𝐌 𝐔𝐒𝐄𝐑𝐁𝐎𝐓𝐒 𝐌𝐀𝐃𝐄 𝐅𝐎𝐑 𝐒𝐏𝐀𝐌𝐌𝐄𝐑𝐒 <br> ... Written With Python and Pytgcalls</h4>
 
-<p align="center"><a href="https://t.me/LEGEND_MUKUND"><img src="https://telegra.ph/file/8b4ede1ddefde4aa50f71.jpg" width="400"></a></p>
+<p align="center"><a href="https://t.me/LEGEND_MUKUND"><img src="https://telegra.ph/file/3f4761dc05024faa00f61.jpg" width="400"></a></p>
 
 
 > ⭐️ Thanks to everyone for using , That is the greatest pleasure we have !
@@ -81,33 +81,39 @@
 
 
 <details>
+<summary><b>ᴍᴜᴋᴜ ʙᴏᴛ </b></summary>
+<br>
+
+<a href="https://t.me/ALIEN_MUSIC_ROBOT"> <img src="https://img.shields.io/badge/MUKU-BOT-green?style=for-the-badge&logo=telegram" alt="Muku Bot" /> </a>
+
+</details>
+
+
+<details>
 <summary><b>ᴄʀᴇᴅɪᴛ</b></summary>
 <br>
 
-## sᴘᴇᴄɪᴀʟ ᴄʀᴇᴅɪᴛ
-
-- [❥ⲘⴑⲔⴑⲚⲆ⏤➖⃟🥀𓆩𝗫.⃝⃡𝐈‌‌ﮩ٨ـﮩﮩ٨ـ](https://t.me/LEGEND_MUKUND)
-
+<a href="https://github.com/Legend-Mukund"> <img src="https://img.shields.io/badge/Mukund-Github-magenta?style=for-the-badge&logo=github" alt="Mukund Github" /> </a>
+   
 </details>
 
-<details>
-<summary><b>ʙʀᴏᴛʜᴇʀ</b></summary>
-<br>
-
-- [ᴀꜱᴀᴅ](https://t.me/Dr_Asad_Ali)
-- [ꜱᴡᴀʏᴀᴍ](https://t.me/msdian4ver)
-- ᴀɴꜱʜ ᴋɪᴍᴅ xᴅ  
-
-</details>
 
 <details>
 <summary><b>sᴜᴘᴘᴏʀᴛ</b></summary>
 <br>
 
-# ꜱᴜᴘᴘᴏʀᴛ ✨
-<a href="https://t.me/ALIEN_X_SUPPORT"><img src="https://img.shields.io/badge/Join-Telegram%20Channel-red.svg?logo=Telegram"></a>
-<a href="**https://t.me/Shayri_Music_Lovers**"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
-<a href="https://t.me/ABOUT_MUKUND/15"><img src="https://img.shields.io/badge/Give-Me%20Heart-blue.svg?logo=telegram"></a>
+
+<a href="https://t.me/ABOUT_MUKUND/15"> <img src="https://img.shields.io/badge/Mukund-User-green?style=for-the-badge&logo=telegram" alt="Mukund on Telegram" /> </a>
+<a href="https://t.me/ALIEN_X_SUPPORT"> <img src="https://img.shields.io/badge/Support-Chat-green?style=for-the-badge&logo=telegram" alt="Support Chat" /> </a>
+<a href="https://t.me/ALIEN_X_UPDATE"> <img src="https://img.shields.io/badge/Update-Channel-green?style=for-the-badge&logo=telegram" alt="Update Channel" /> </a> 
 
 
+</details>
+
+<details>
+<summary><b>ʟɪᴄᴇɴꜱᴇ</b></summary>
+<br>
+
+<a href="https://github.com/Legend-Mukund/Song/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-GPLv3-blueviolet?style=for-the-badge" alt="License" /> </a>
+  
 </details>

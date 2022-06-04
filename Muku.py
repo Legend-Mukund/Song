@@ -44,10 +44,15 @@ LIVE_CHATS = []
 
 START_TEXT = """
 ʜᴏɪ <b>{}</b>
+
 [»] ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsᴄɪ ɪɴ ʙᴏᴛʜ ᴀᴜᴅɪᴏ ᴀɴᴅ ᴠɪᴅᴇᴏ ғᴏʀᴍ ᴏɴ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ.
+
 [»] ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ.
+
 [»] ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ.
+
 [»] ғᴏʀ ᴀɴʏ ᴋɪɴᴅ ᴏғ sᴜᴘᴘᴏʀᴛ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ.
+
 [»] ғᴏʀ ᴀɴʏ ғᴜᴛʜᴇʀ ᴜᴘᴅᴀᴛᴇ ᴏʀ ғᴏʀ ᴍᴏʀᴇ ʙᴏᴛs ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ.
 """
 
@@ -62,7 +67,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         ],
         [
             InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
-            InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ", url="https://t.me/ALIEN_X_SUPPORT")
+            InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ", url="https://t.me/ALIEN_X_UPDATE")
         ],
         [
             InlineKeyboardButton("ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ", url="https://t.me/ABOUT_MUKUND/15")
@@ -72,19 +77,10 @@ START_BUTTONS = InlineKeyboardMarkup(
 
 
 BUTTONS = InlineKeyboardMarkup(
-    [ 
-        [ 
-            InlineKeyboardButton(text="▷", callback_data="pause"),
-            InlineKeyboardButton(text="II", callback_data="resume"),
-            InlineKeyboardButton(text="‣‣I", callback_data="skip"),
-            InlineKeyboardButton(text="▢", callback_data="stop")
-        ],
-        [ 
-            InlineKeyboardButton(text="🔇", callback_data="mute"),
-            InlineKeyboardButton(text="🔊", callback_data="unmute")
-        ],
-        [ 
-            InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data="close")
+    [
+        [
+            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
+            InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇ", url="https://t.me/ALIEN_X_UPDATE")
         ]
     ]
 )
@@ -96,13 +92,13 @@ MUKUND_MUSIC = [
     ],
     [ 
         InlineKeyboardButton(text="ᴀᴅᴍɪɴs", callback_data="admin_cmd"),
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="HOME"),
     ],
 ]
 
 A_BUTTONS = [
     [
-        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="ok"),
         InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
     ],
 ]
@@ -116,7 +112,7 @@ REPO_BUTTONS = [
         InlineKeyboardButton(text="Dᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/LEGEND_MUKUND"),
     ],
     [
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="HOME"),
     ],
 ]
 
@@ -134,7 +130,7 @@ REPO_MSG = """
 """
 
 HELP_TEXT = """
-ʜᴏɪ <b>{}</b>
+ʜᴏɪ 
 
 [»] ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ᴍᴇɴᴜ ғᴏʀ ᴛʜᴇ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ.
 
@@ -151,8 +147,6 @@ OWNER_HELP = """
 
 [»] /restart : ᴛᴏ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ 
 
-[»] /broadcast : [»] / : ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ ғʀᴏᴍ ʙᴏᴛ 
-
 [»] sᴏᴏɴ ɪ ᴡɪʟʟ ᴀᴅᴅ ᴍᴏʀᴇ.
 
 [»] ᴀɴᴅ ғᴏʀ ᴀɴʏ ᴋɪɴᴅ ᴏғ ʜᴇʟᴘ ᴊᴏɪɴ @ALIEN_X_SUPPORT !!!
@@ -168,7 +162,7 @@ B_HELP = """
 
 [»] /playlist | /queue : ᴛᴏ sᴇᴇ ᴛʜᴇ ǫᴜᴇᴜᴇ ᴏʀ ᴘʟᴀʏʟɪsᴛ ᴛʜᴀᴛ ɪs ɢᴏɪɴɢ ᴛᴏ ʙᴇ ᴘʟᴀʏᴇᴅ.
 
-[»] / : ᴛᴏ ᴄᴀʟʟ ᴛʜᴇ ᴜsᴇʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ
+[»] /join : ᴛᴏ ᴄᴀʟʟ ᴛʜᴇ ᴜsᴇʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ
 
 """
 
@@ -189,9 +183,9 @@ A_HELP = """
 
 """
 
-@bot.on_callback_query()
+@Client.on_callback_query()
 def home(Client, CallbackQuery):
-    if CallbackQuery.data == "home":
+    if CallbackQuery.data == "HOME":
         CallbackQuery.edit_message_text(
             START_TEXT,
             reply_markup = InlineKeyboardMarkup(START_BUTTONS)
@@ -220,7 +214,9 @@ def home(Client, CallbackQuery):
         CallbackQuery.edit_message_text(
             HELP_TEXT,
             reply_markup = InlineKeyboardMarkup(MUKUND_MUSIC)
-        ) 
+        )
+    elif CallbackQuery.data == "ok":
+        CallbackQuery.message.delete()          
 
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:
@@ -495,9 +491,9 @@ async def join_chat(c: Client, m: Message):
                 "https://t.me/+", "https://t.me/joinchat/"
             )
             await client.join_chat(invitelink)
-            return await client.send_message(chat_id, "✅ Assistant joined chat")
+            return await client.send_message(chat_id, "`✅ Assistant joined chat`")
     except UserAlreadyParticipant:
-        return await client.send_message(chat_id, "✅ Assistant already in chat")    
+        return await client.send_message(chat_id, "`✅ Assistant already in chat`")    
     
 @bot.on_message(filters.command(["saudio", "svideo"]) & filters.group)
 @is_admin
@@ -677,6 +673,7 @@ PHOTO = [
     "https://telegra.ph/file/9434e8ead90db9a5404e2.jpg",
 ]
 
+LAMOSUIT = "https://telegra.ph/file/9434e8ead90db9a5404e2.jpg"
 
 @bot.on_message(filters.command("broadcast"))
 async def broadcast(_, message: Message):
@@ -698,9 +695,24 @@ async def broadcast(_, message: Message):
                 await asyncio.sleep(3)
             except:
                 failed=failed+1
-        await message.reply_photo(random.choice(PHOTO), caption=f"`sᴜᴄᴄᴇsғᴜʟʟʏ ᴅᴏɴᴇ🧚‍♀️` \n\nsᴜᴄᴄᴇssғᴜʟʟ**:** `{sent}` ᴄʜᴀᴛs \n**ғᴀɪʟᴇᴅ :** {failed} ᴄʜᴀᴛs")
+        await message.reply_photo(LAMOSUIT, caption=f"`sᴜᴄᴄᴇsғᴜʟʟʏ ᴅᴏɴᴇ🧚‍♀️` \n\nsᴜᴄᴄᴇssғᴜʟʟ**:** `{sent}` ᴄʜᴀᴛs \n**ғᴀɪʟᴇᴅ :** {failed} ᴄʜᴀᴛs")
 
-        
+ALIVE_TEXT = """
+[»] ʏᴏ ʏᴏ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ ʜᴇʀᴇ.
+
+[»] ᴜsᴇʀʙᴏᴛ : `ᴀʟɪᴠᴇ`
+
+[»] ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ : `1.4.16`
+
+"""
+@bot.on_message(filter.command("alive"))
+async def alive(_, message):
+    user_id = message.from_user.id
+    if user_id != OWNER_ID:
+        return
+    await message.reply_photo(random.choice(PHOTO), ALIVE_TEXT, reply_markup = BUTTONS)
+
+
 @bot.on_message(filters.command("restart"))
 async def restart(_, message):
     user_id = message.from_user.id

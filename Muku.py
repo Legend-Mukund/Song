@@ -93,7 +93,7 @@ BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton(text="🔊", callback_data="unmute")
         ],
         [ 
-            InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data="close")
+            InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data="ok")
         ]
     ]
 )
@@ -105,13 +105,13 @@ MUKUND_MUSIC = [
     ],
     [ 
         InlineKeyboardButton(text="ᴀᴅᴍɪɴs", callback_data="admin_cmd"),
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="mukund"),
     ],
 ]
 
 A_BUTTONS = [
     [
-        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="ok"),
         InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
     ],
 ]
@@ -125,7 +125,7 @@ REPO_BUTTONS = [
         InlineKeyboardButton(text="Dᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/LEGEND_MUKUND"),
     ],
     [
-        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="mukund"),
     ],
 ]
 
@@ -200,7 +200,7 @@ A_HELP = """
 
 @bot.on_callback_query()
 def home(Client, CallbackQuery):
-    if CallbackQuery.data == "home":
+    if CallbackQuery.data == "mukund":
         CallbackQuery.edit_message_text(
             START_TEXT,
             reply_markup = InlineKeyboardMarkup(START_BUTTONS)
@@ -229,7 +229,9 @@ def home(Client, CallbackQuery):
         CallbackQuery.edit_message_text(
             HELP_TEXT,
             reply_markup = InlineKeyboardMarkup(MUKUND_MUSIC)
-        ) 
+        )
+    elif CallbackQuery.data == "ok":
+        CallbackQuery.message.delete()        
 
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:

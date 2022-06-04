@@ -71,7 +71,7 @@ START_BUTTONS = InlineKeyboardMarkup(
 )
 
 
-BUTTON = InlineKeyboardMarkup(
+BUTTONS = InlineKeyboardMarkup(
     [ 
         [ 
             InlineKeyboardButton(text="▷", callback_data="pause"),

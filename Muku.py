@@ -2,6 +2,7 @@ import os
 import glob
 import json
 import logging
+import random
 import asyncio
 import youtube_dl
 from pytube import YouTube
@@ -41,46 +42,185 @@ BOT_USERNAME = os.environ["BOT_USERNAME"]
 
 LIVE_CHATS = []
 
-
 START_TEXT = """
-━━━━━━━━━━━━━━━━━━━━━━━━
-💥 𝙃𝙚𝙡𝙡𝙤, 𝙄 𝘼𝙢 𝐀𝐋𝐈𝚵𝐍™ 𝐗 𝐌𝐔𝐒𝐈𝐂
-𝘽𝙤𝙩 𝙁𝙤𝙧 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢 𝙂𝙧𝙤𝙪𝙥𝙨 𝘼𝙡𝙡𝙤𝙬𝙨 𝙔𝙤𝙪 𝙏𝙤 𝙋𝙡𝙖𝙮 𝙈𝙪𝙨𝙞𝙘 𝘼𝙣𝙙 𝙑𝙞𝙙𝙚𝙤𝙨 𝙊𝙣 𝙂𝙧𝙤𝙪𝙥𝙨 𝙏𝙝𝙧𝙤𝙪𝙜𝙝 𝙏𝙝𝙚 𝙉𝙚𝙬 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢 𝙑𝙞𝙙𝙚𝙤 𝘾𝙝𝙖𝙩𝙨...
-━━━━━━━━━━━━━━━━━━━━━━━━
+ʜᴏɪ <b>{}</b>
+[»] ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsᴄɪ ɪɴ ʙᴏᴛʜ ᴀᴜᴅɪᴏ ᴀɴᴅ ᴠɪᴅᴇᴏ ғᴏʀᴍ ᴏɴ ᴛʜᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ.
+[»] ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ᴀɴᴅ ᴇɴᴊᴏʏ.
+[»] ʏᴏᴜ ᴄᴀɴ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟʟᴏᴡ.
+[»] ғᴏʀ ᴀɴʏ ᴋɪɴᴅ ᴏғ sᴜᴘᴘᴏʀᴛ ᴊᴏɪɴ ᴏᴜʀ sᴜᴘᴘᴏʀᴛ.
+[»] ғᴏʀ ᴀɴʏ ғᴜᴛʜᴇʀ ᴜᴘᴅᴀᴛᴇ ᴏʀ ғᴏʀ ᴍᴏʀᴇ ʙᴏᴛs ᴊᴏɪɴ ᴏᴜʀ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ.
 """
 
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("♦️ 𝘈𝘥𝘥 𝘔𝘦 𝘛𝘰 𝘠𝘰𝘶𝘳 𝘎𝘳𝘰𝘶𝘱 ♦️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+            InlineKeyboardButton("ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
         ],
         [
-            InlineKeyboardButton("𝐇𝚵𝐋𝐏 🔐", callback_data="cbcmds"),
-            InlineKeyboardButton("𝐑𝚵𝐏𝐎 ✨", url="https://github.com/Legend-Mukund/Song")
+            InlineKeyboardButton("ʜᴇʟᴘ", callback_data="help_back"),
+            InlineKeyboardButton("ʀᴇᴘᴏ", callback_data="repo")
         ],
         [
-            InlineKeyboardButton("🚩𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url="https://t.me/ALIEN_X_SUPPORT"),
-            InlineKeyboardButton("🔔 𝐔𝐏𝐃𝐀𝐓𝚵", url="https://t.me/ALIEN_X_UPDATE")
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
+            InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ", url="https://t.me/ALIEN_X_SUPPORT")
         ],
         [
-            InlineKeyboardButton("𝐆𝐈𝐕𝐄 𝐌𝐄 𝐇𝚵𝐀𝐑𝐓 ❤️", url="https://t.me/ABOUT_MUKUND/15")
+            InlineKeyboardButton("ɢɪᴠᴇ ᴍᴇ ʜᴇᴀʀᴛ", url="https://t.me/ABOUT_MUKUND/15")
         ]
     ]
 )
 
-BUTTONS = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton("▷", callback_data="resume"),
-            InlineKeyboardButton("II", callback_data="pause"),
-            InlineKeyboardButton("‣‣I", callback_data="skip"),
-            InlineKeyboardButton("▢", callback_data="end"),
+
+BUTTON = InlineKeyboardMarkup(
+    [ 
+        [ 
+            InlineKeyboardButton(text="▷", callback_data="pause"),
+            InlineKeyboardButton(text="II", callback_data="resume"),
+            InlineKeyboardButton(text="‣‣I", callback_data="skip"),
+            InlineKeyboardButton(text="▢", callback_data="stop")
         ],
-        [
-            InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
+        [ 
+            InlineKeyboardButton(text="🔇", callback_data="mute"),
+            InlineKeyboardButton(text="🔊", callback_data="unmute")
+        ],
+        [ 
+            InlineKeyboardButton(text="• ᴄʟᴏsᴇ •", callback_data="close")
         ]
     ]
 )
+
+MUKUND_MUSIC = [
+    [ 
+        InlineKeyboardButton(text="ᴜsᴇʀs", callback_data="basic_"),
+        InlineKeyboardButton(text="ᴏᴡɴᴇʀ", callback_data="owner"),
+    ],
+    [ 
+        InlineKeyboardButton(text="ᴀᴅᴍɪɴs", callback_data="admin_cmd"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+    ],
+]
+
+A_BUTTONS = [
+    [
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close"),
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
+    ],
+]
+REPO_BUTTONS = [
+    [
+        InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", url="https://github.com/Legend-Mukund/Song"),
+    ],
+    [ 
+        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
+        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url="https://t.me/ALIEN_X_UPDATE"),
+        InlineKeyboardButton(text="Dᴇᴠᴇʟᴏᴘᴇʀ", url="https://t.me/LEGEND_MUKUND"),
+    ],
+    [
+        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="home"),
+    ],
+]
+
+REPO_MSG = """
+ʜᴏɪ 
+
+[»] ʜᴇʀᴇ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ.
+
+[»] ʙᴏᴛʜ ᴀᴜᴅɪᴏ + ᴠɪᴅᴇᴏ sᴜᴘᴘᴏʀᴛ.
+
+[»] ɪ ᴄᴀɴ ᴘʟᴀʏ ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏs ᴛᴏᴏ sᴏ ʏᴏᴜ ᴄᴀɴ sᴇᴇ ᴍᴏᴠɪᴇs ᴛᴏᴏ.
+
+[»] ʜᴇʀᴇ ɪs ᴛʜᴇ ʀᴇᴘᴏ ғᴏʀ ᴛʜᴇ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ.
+
+"""
+
+HELP_TEXT = """
+ʜᴏɪ <b>{}</b>
+
+[»] ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ᴍᴇɴᴜ ғᴏʀ ᴛʜᴇ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ.
+
+[»] ʀᴇᴀᴅ ɪᴛ ᴄᴀʀᴇ ғᴜʟʟʏ ɪᴛ ɪs ᴅɪᴠɪᴅᴇᴅ ɪɴᴛᴏ ᴛʜʀᴇᴇ sᴇᴄᴛɪᴏɴs .
+
+[»] ᴀɴᴅ ғᴏʀ ᴀɴʏ ᴋɪɴᴅ ᴏғ ʜᴇʟᴘ ᴊᴏɪɴ @ALIEN_X_SUPPORT !!!
+
+"""
+
+OWNER_HELP = """
+ʜᴏɪ 
+
+[»] ʜᴇʀᴇ ɪs ᴛʜᴇ ᴏᴡɴᴇʀ ʜᴇʟᴘ ᴍᴇɴᴜ ғᴏʀ ᴛʜᴇ ᴍᴜᴋᴜɴᴅ ᴍᴜsɪᴄ.
+
+[»] /restart : ᴛᴏ ʀᴇsᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ 
+
+[»] /broadcast : [»] / : ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ ғʀᴏᴍ ʙᴏᴛ 
+
+[»] sᴏᴏɴ ɪ ᴡɪʟʟ ᴀᴅᴅ ᴍᴏʀᴇ.
+
+[»] ᴀɴᴅ ғᴏʀ ᴀɴʏ ᴋɪɴᴅ ᴏғ ʜᴇʟᴘ ᴊᴏɪɴ @ALIEN_X_SUPPORT !!!
+
+"""
+
+B_HELP = """
+`ᴜsᴇʀ ᴄᴏᴍᴍᴀɴᴅs !!!`
+
+[»] /play : ᴛᴏ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ᴀᴜᴅɪᴏ ғᴏʀᴍ ᴏɴ ᴠᴄ.
+
+[»] /vplay : ᴛᴏ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ᴠɪᴅᴇᴏ ғᴏʀᴍ ᴏɴ ᴠᴄ.
+
+[»] /playlist | /queue : ᴛᴏ sᴇᴇ ᴛʜᴇ ǫᴜᴇᴜᴇ ᴏʀ ᴘʟᴀʏʟɪsᴛ ᴛʜᴀᴛ ɪs ɢᴏɪɴɢ ᴛᴏ ʙᴇ ᴘʟᴀʏᴇᴅ.
+
+[»] / : ᴛᴏ ᴄᴀʟʟ ᴛʜᴇ ᴜsᴇʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ
+
+"""
+
+A_HELP = """
+`ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs !!!`
+
+[»] /pause : ᴛᴏ ᴘᴀᴜsᴇ ᴛʜᴇ ᴜsᴇʀʙᴏᴛ ᴏɴ ᴠᴄ.
+
+[»] /resume : ᴛᴏ ʀᴇsᴜᴍᴇ ᴛʜᴇ ᴜsᴇʀʙᴏᴛ ᴏɴ ᴠᴄ.
+
+[»] /end : ᴛᴏ ᴇɴᴅ sᴛʀᴇᴀᴍɪɴɢ.
+
+[»] /skip : ᴛᴏ sᴋɪᴘ ᴛʜᴇ ᴍᴜsɪᴄ ᴏɴ ᴠᴄ.
+
+[»] /mute : ᴛᴏ ᴍᴜᴛᴇ ᴛʜᴇ ᴜsᴇʀʙᴏᴛ ᴏɴ ᴠᴄ.
+
+[»] /unmute : ᴛᴏ ᴜɴᴍᴜᴛᴇ ᴛʜᴇ ᴜsᴇʀʙᴏᴛ ᴏɴ ᴠᴄ 
+
+"""
+
+@bot.on_callback_query()
+def home(Client, CallbackQuery):
+    if CallbackQuery.data == "home":
+        CallbackQuery.edit_message_text(
+            START_TEXT,
+            reply_markup = InlineKeyboardMarkup(START_BUTTONS)
+        )
+    elif CallbackQuery.data == "repo":
+        CallbackQuery.edit_message_text(
+            REPO_MSG,
+            reply_markup = InlineKeyboardMarkup(REPO_BUTTONS)
+        )
+    elif CallbackQuery.data == "admin_cmd":
+        CallbackQuery.edit_message_text(
+            A_HELP,
+            reply_markup = InlineKeyboardMarkup(A_BUTTONS)
+        )
+    elif CallbackQuery.data == "basic_":
+        CallbackQuery.edit_message_text(
+            B_HELP,
+            reply_markup = InlineKeyboardMarkup(A_BUTTONS)
+        )
+    elif CallbackQuery.data == "owner":
+        CallbackQuery.edit_message_text(
+            OWNER_HELP,
+            reply_markup = InlineKeyboardMarkup(A_BUTTONS)
+        )    
+    elif CallbackQuery.data == "help_back":
+        CallbackQuery.edit_message_text(
+            HELP_TEXT,
+            reply_markup = InlineKeyboardMarkup(MUKUND_MUSIC)
+        ) 
 
 async def skip_current_song(chat_id):
     if chat_id in QUEUE:
@@ -112,13 +252,13 @@ async def skip_current_song(chat_id):
                 elif Q == "low":
                     hm = LowQualityVideo()
                 else:
-                    hm = LowQualityVideo()
+                    hm = MediumQualityVideo()
                 await app.change_stream(
                     chat_id, AudioVideoPiped(playlink, HighQualityAudio(), hm)
                 )
             pop_an_item(chat_id)
             await bot.send_photo(chat_id, photo = thumb,
-                                 caption = f"▶️ <b>Now playing:</b> [{title}]({link}) | `{type}` \n\n⏳ <b>Duration:</b> {duration}",
+                                 caption = f"[»] <b>ɴᴏᴡ ᴘʟᴀʏɪɴɢ:</b> [{title}]({link})\n\n[»] ғᴏʀᴍᴀᴛ: `{type}` \n\n[»] <b>ᴅᴜʀᴀᴛɪᴏɴ:</b> {duration}",
                                  reply_markup = BUTTONS)
             return [title, link, type, duration, thumb]
     else:
@@ -151,7 +291,7 @@ async def on_end_handler(_, update: Update):
 async def close_handler(client: PyTgCalls, chat_id: int):
     if chat_id in QUEUE:
         clear_queue(chat_id)
-
+        
 
 async def yt_video(link):
     proc = await asyncio.create_subprocess_exec(
@@ -186,56 +326,95 @@ async def yt_audio(link):
     else:
         return 0, stderr.decode()
 
+# THIS IS CALLBACK FOR FUNCTIONS 🌚
 
-@bot.on_callback_query(filters.regex("cbcmds"))
-async def cbcmds(_, query: CallbackQuery):
-    await query.answer("Commands Menu")
-    await query.edit_message_text(
-        f""" 𝘏𝘦𝘭𝘭𝘰 » **𝘓𝘪𝘴𝘵 𝘖𝘧 𝘈𝘷𝘢𝘪𝘭𝘢𝘣𝘭𝘦 𝘊𝘰𝘮𝘮𝘢𝘯𝘥𝘴**
-» /play (Song Name/Link) - Play Music
-» /vplay (video name/link) - Play Video
-» /pause - Pause The Song
-» /resume - Resume The Song
-» /skip - switch to next Song
-» /end - Stop The Streaming
-» /join - Invite Assistant To Your Group
-» /mute - Mute The Assistant On Voice Chat
-» /unmute - UnMute The Assistant On Voice Chat
-» /playlist - Show You The Playlist
-» /restart - Restart The Bot
-⚡ __𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝐀𝐋𝐈𝚵𝐍™ 𝐗__""")
+@bot.on_callback_query()
+async def callbacks(_, cq: CallbackQuery):
+    user_id = cq.from_user.id
+    try:
+        user = await cq.message.chat.get_member(user_id)
+        admin_strings = ("creator", "administrator")
+        if user.status not in admin_strings:
+            is_admin = False
+        else:
+            is_admin = True
+    except ValueError:
+        is_admin = True        
+    if not is_admin:
+        return await cq.answer("[»] ʏᴏᴜ ᴀʀᴇɴ'ᴛ ᴀɴ ᴀᴅᴍɪɴ.")   
+    chat_id = cq.message.chat.id
+    data = cq.data
+    if data == "close":
+        return await cq.message.delete()
+    if not chat_id in QUEUE:
+        return await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
 
+    if data == "pause":
+        try:
+            await app.pause_stream(chat_id)
+            await cq.answer("[»] ᴘᴀᴜsᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
+        except:
+            await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
+      
+    elif data == "resume":
+        try:
+            await app.resume_stream(chat_id)
+            await cq.answer("[»] Resumed streaming.")
+        except:
+            await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")   
+
+    elif data == "stop":
+        await app.leave_group_call(chat_id)
+        clear_queue(chat_id)
+        await cq.answer("[»] sᴛᴏᴘᴘᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")  
+
+    elif data == "mute":
+        try:
+            await app.mute_stream(chat_id)
+            await cq.answer("[»] ᴍᴜᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
+        except:
+            await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
+            
+    elif data == "unmute":
+        try:
+            await app.unmute_stream(chat_id)
+            await cq.answer("[»] ᴜɴᴍᴜᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
+        except:
+            await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
+            
+    elif data == "skip":
+        op = await skip_current_song(chat_id)
+        if op == 0:
+            await cq.answer("[»] ɴᴏᴛʜɪɴɢ ɪɴ ᴛʜᴇ ǫᴜᴇᴜᴇ ᴛᴏ sᴋɪᴘ.")
+        elif op == 1:
+            await cq.answer("[»] ᴇᴍᴘᴛʏ ǫᴜᴇᴜᴇ, sᴛᴏᴘᴘᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
+        else:
+            await cq.answer("[»] sᴋɪᴘᴘᴇᴅ.")
+
+@bot.on_message(filters.command("help") & filters.private)
+async def start_private(_, message):
+    msg = HELP_TEXT.format(message.from_user.mention)
+    await message.reply_text(text = msg,
+                             reply_markup = MUKUND_MUSIC)            
+
+@bot.on_message(filters.command("help") & filters.group)
+async def start_private(_, message):
+    msg = HELP_TEXT.format(message.from_user.mention)
+    await message.reply_text(text = msg,
+                             reply_markup = MUKUND_MUSIC)  
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
-    await message.reply_sticker("CAACAgUAAxkBAAEBDSBic69AvlMrYiRkFjo9aMVfEiiDLgACgQUAAi0gWVRq19A_wqypQSQE")
-    await message.reply_text(caption = msg,
+    await message.reply_text(text = msg,
                              reply_markup = START_BUTTONS)
-    
-
-@bot.on_message(filters.command(["join", "join@{BOT_USERNAME}"]) & filters.group)
-async def join_chat(c: Client, m: Message):
-    chat_id = m.chat.id
-    try:
-        invitelink = await c.export_chat_invite_link(chat_id)
-        if invitelink.startswith("https://t.me/+"):
-            invitelink = invitelink.replace(
-                "https://t.me/+", "https://t.me/joinchat/"
-            )
-            await client.join_chat(invitelink)
-            return await client.send_message(chat_id, "✅ Assistant joined chat")
-    except UserAlreadyParticipant:
-        return await client.send_message(chat_id, "✅ Assistant already in chat")
-
 
 @bot.on_message(filters.command("start") & filters.group)
-async def start_group(_, message):
-    await message.reply_sticker("CAACAgUAAxkBAAEBDSBic69AvlMrYiRkFjo9aMVfEiiDLgACgQUAAi0gWVRq19A_wqypQSQE")
-    await message.reply_photo(photo="https://telegra.ph/file/627687ce58e86137aa635.jpg",
-                              caption = f"Hello 🦋 {message.from_user.mention} 🎧 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 𝐈𝐬 𝐑𝐮𝐧𝐧𝐢𝐧𝐠.",
-                              reply_markup = BUTTONS)
-
+async def start_private(_, message):
+    msg = START_TEXT.format(message.from_user.mention)
+    await message.reply_text(text = msg,
+                             reply_markup = START_BUTTONS)
+    
 
 @bot.on_message(filters.command(["play", "vplay"]) & filters.group)
 async def video_play(_, message):
@@ -245,9 +424,12 @@ async def video_play(_, message):
     try:
         query = message.text.split(None, 1)[1]
     except:
-        return await message.reply_text(f"<b>Usage:</b> <code>/{state} [query]</code>")
+        return await message.reply_text(f"<b>ᴜsᴀɢᴇ:</b> <code>/{state} [query]</code>")
     chat_id = message.chat.id
-    m = await message.reply_text("🔍")
+    if chat_id in LIVE_CHATS:
+        return await message.reply_text("❗️ᴘʟᴇᴀsᴇ sᴇɴᴅ <code>/stop</code> ᴛᴏ ᴇɴᴅ ᴄᴜʀʀᴇɴᴛ ʟɪᴠᴇ sᴛʀᴇᴀᴍɪɴɢ ʙᴇғᴏʀᴇ ᴘʟᴀʏ sᴏɴɢs ᴏʀ ᴠɪᴅᴇᴏs.")
+    
+    m = await message.reply_text("🔄 ᴘʀᴏᴄᴇssɪɴɢ...")
     if state == "play":
         damn = AudioPiped
         ded = yt_audio
@@ -270,7 +452,7 @@ async def video_play(_, message):
         thumb = results[0]["thumbnails"][0]
         duration = results[0]["duration"]
         yt = YouTube(link)
-        cap = f"▶️ <b>Now playing:</b> [{yt.title}]({link}) | `{doom}` \n\n⏳ <b>Duration:</b> {duration}"
+        cap = f"[»] <b>ɴᴏᴡ ᴘʟᴀʏɪɴɢ:</b> [{yt.title}]({link})\n\n[»] ғᴏʀᴍᴀᴛ: `{doom}` \n\n[»] <b>ᴅᴜʀᴀᴛɪᴏɴ:</b> {duration}"
         try:
             ydl_opts = {"format": "bestvideo[height<=720]+bestaudio/best[height<=720]"}
             ydl = youtube_dl.YoutubeDL(ydl_opts)
@@ -281,15 +463,15 @@ async def video_play(_, message):
         except:
             ice, playlink = await ded(link)
             if ice == "0":
-                return await m.edit("❗️YTDL ERROR !!!")               
+                return await m.edit("❗️ʏᴛᴅʟ ᴇʀʀᴏʀ !!!")               
     except Exception as e:
         return await m.edit(str(e))
     
     try:
         if chat_id in QUEUE:
             position = add_to_queue(chat_id, yt.title, duration, link, playlink, doom, Q, thumb)
-            caps = f"#️⃣ [{yt.title}]({link}) <b>queued at position {position}</b> \n\n⏳ <b>Duration:</b> {duration}"
-            await message.reply_photo(thumb, caption=caps, reply_markup=BUTTONS)
+            caps = f"#️⃣ [{yt.title}]({link}) <b>ǫᴜᴇᴜᴇᴅ ᴀᴛ ᴘᴏsɪᴛɪᴏɴ {position}</b> \n\n⏳ <b>ᴅᴜʀᴀᴛɪᴏɴ:</b> {duration}"
+            await message.reply_photo(thumb, caption=caps)
             await m.delete()
         else:            
             await app.join_group_call(
@@ -302,6 +484,57 @@ async def video_play(_, message):
             await m.delete()
     except Exception as e:
         return await m.edit(str(e))
+    
+@bot.on_message(filters.command(["join", "join@{BOT_USERNAME}"]) & filters.group)
+async def join_chat(c: Client, m: Message):
+    chat_id = m.chat.id
+    try:
+        invitelink = await c.export_chat_invite_link(chat_id)
+        if invitelink.startswith("https://t.me/+"):
+            invitelink = invitelink.replace(
+                "https://t.me/+", "https://t.me/joinchat/"
+            )
+            await client.join_chat(invitelink)
+            return await client.send_message(chat_id, "✅ Assistant joined chat")
+    except UserAlreadyParticipant:
+        return await client.send_message(chat_id, "✅ Assistant already in chat")    
+    
+@bot.on_message(filters.command(["saudio", "svideo"]) & filters.group)
+@is_admin
+async def stream_func(_, message):
+    await message.delete()
+    state = message.command[0].lower()
+    try:
+        link = message.text.split(None, 1)[1]
+    except:
+        return await message.reply_text(f"<b>ᴜsᴀɢᴇ:</b> <code>/{state} [link]</code>")
+    chat_id = message.chat.id
+    
+    if state == "saudio":
+        damn = AudioPiped
+        emj = "🎵"
+    elif state == "svideo":
+        damn = AudioVideoPiped
+        emj = "🎬"
+    m = await message.reply_text("🔄 ᴘʀᴏᴄᴇssɪɴɢ...")
+    try:
+        if chat_id in QUEUE:
+            return await m.edit("❗️ᴘʟᴇᴀsᴇ sᴇɴᴅ <code>/stop</code> ᴛᴏ ᴇɴᴅ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ʙᴇғᴏʀᴇ ʟɪᴠᴇ sᴛʀᴇᴀᴍɪɴɢ.")
+        elif chat_id in LIVE_CHATS:
+            await app.change_stream(
+                chat_id,
+                damn(link)
+            )
+            await m.edit(f"{emj} sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ: [Link]({link})", disable_web_page_preview=True)
+        else:    
+            await app.join_group_call(
+                chat_id,
+                damn(link),
+                stream_type=StreamType().pulse_stream)
+            await m.edit(f"{emj} sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ: [Link]({link})", disable_web_page_preview=True)
+            LIVE_CHATS.append(chat_id)
+    except Exception as e:
+        return await m.edit(str(e))
 
 
 @bot.on_message(filters.command("skip") & filters.group)
@@ -312,12 +545,12 @@ async def skip(_, message):
     if len(message.command) < 2:
         op = await skip_current_song(chat_id)
         if op == 0:
-            await message.reply_text("❗️Nothing in the queue to skip.")
+            await message.reply_text("❗️ɴᴏᴛʜɪɴɢ ɪɴ ᴛʜᴇ ǫᴜᴇᴜᴇ ᴛᴏ sᴋɪᴘ.")
         elif op == 1:
-            await message.reply_text("❗️Empty queue, stopped streaming.")
+            await message.reply_text("❗️ᴇᴍᴘᴛʏ ǫᴜᴇᴜᴇ, sᴛᴏᴘᴘᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
     else:
         skip = message.text.split(None, 1)[1]
-        out = "🗑 <b>Removed the following song(s) from the queue:</b> \n"
+        out = "🗑 <ʙ>ʀᴇᴍᴏᴠᴇᴅ ᴛʜᴇ ғᴏʟʟᴏᴡɪɴɢ sᴏɴɢs ғʀᴏᴍ ᴛʜᴇ ǫᴜᴇᴜᴇ:</b> \n"
         if chat_id in QUEUE:
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
@@ -331,9 +564,9 @@ async def skip(_, message):
                     else:
                         out = out + "\n" + f"<b>#️⃣ {x}</b> - {hm}"
             await message.reply_text(out)
-
-
-@bot.on_message(filters.command(["playlist"]) & filters.group)
+            
+            
+@bot.on_message(filters.command(["playlist", "queue"]) & filters.group)
 @is_admin
 async def playlist(_, message):
     chat_id = message.chat.id
@@ -342,11 +575,11 @@ async def playlist(_, message):
         if len(chat_queue) == 1:
             await message.delete()
             await message.reply_text(
-                f"▶️ <b>Now playing:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}`",
+                f"▶️ <b>ɴᴏᴡ ᴘʟᴀʏɪɴɢ:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}`",
                 disable_web_page_preview=True,
             )
         else:
-            out = f"<b>📃 Player queue:</b> \n\n▶️ <b>Now playing:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}` \n"
+            out = f"<b>📃 Player queue:</b> \n\n▶️ <b>ɴᴏᴡ ᴘʟᴀʏɪɴɢ:</b> [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][4]}` \n"
             l = len(chat_queue)
             for x in range(1, l):
                 title = chat_queue[x][0]
@@ -355,20 +588,25 @@ async def playlist(_, message):
                 out = out + "\n" + f"<b>#️⃣ {x}</b> - [{title}]({link}) | `{type}` \n"
             await message.reply_text(out, disable_web_page_preview=True)
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
     
 
-@bot.on_message(filters.command("end") & filters.group)
+@bot.on_message(filters.command("stop") & filters.group)
 @is_admin
 async def end(_, message):
     await message.delete()
     chat_id = message.chat.id
+    if chat_id in LIVE_CHATS:
+        await app.leave_group_call(chat_id)
+        LIVE_CHATS.remove(chat_id)
+        return await message.reply_text("▢ sᴛᴏᴘᴘᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
+        
     if chat_id in QUEUE:
         await app.leave_group_call(chat_id)
         clear_queue(chat_id)
-        await message.reply_text("⏹ Stopped Playing.")
+        await message.reply_text("▢ sᴛᴏᴘᴘᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
         
 
 @bot.on_message(filters.command("pause") & filters.group)
@@ -379,11 +617,11 @@ async def pause(_, message):
     if chat_id in QUEUE:
         try:
             await app.pause_stream(chat_id)
-            await message.reply_text("⏸ Paused Playing.")
+            await message.reply_text("II ᴘᴀᴜsᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
         
         
 @bot.on_message(filters.command("resume") & filters.group)
@@ -394,11 +632,11 @@ async def resume(_, message):
     if chat_id in QUEUE:
         try:
             await app.resume_stream(chat_id)
-            await message.reply_text("⏸ Resumed streaming.")
+            await message.reply_text("▷ ʀᴇsᴜᴍᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
         
         
 @bot.on_message(filters.command("mute") & filters.group)
@@ -409,11 +647,11 @@ async def mute(_, message):
     if chat_id in QUEUE:
         try:
             await app.mute_stream(chat_id)
-            await message.reply_text("🔇 Muted Playing.")
+            await message.reply_text("🔇 ᴍᴜᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
     else:
-        await message.reply_text("❗Nothing is playing.")
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
         
         
 @bot.on_message(filters.command("unmute") & filters.group)
@@ -424,19 +662,51 @@ async def unmute(_, message):
     if chat_id in QUEUE:
         try:
             await app.unmute_stream(chat_id)
-            await message.reply_text("🔊 Unmuted streaming.")
+            await message.reply_text("🔊 ᴜɴᴍᴜᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ.")
         except:
-            await message.reply_text("❗Nothing is playing.")
+            await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
     else:
-        await message.reply_text("❗Nothing is playing.")
-        
+        await message.reply_text("❗ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ.")
+
+PHOTO = [
+    "https://telegra.ph/file/8d5ae37f8b4b2b1b64763.jpg",
+    "https://telegra.ph/file/2d4d106a4b4ecacb99374.jpg",
+    "https://telegra.ph/file/e635ced7273b64341adea.jpg",
+    "https://telegra.ph/file/e42dfbac4be6ddbf1d99f.jpg",
+    "https://telegra.ph/file/db0a91985e4e963b6ef31.jpg",
+    "https://telegra.ph/file/9434e8ead90db9a5404e2.jpg",
+]
+
+
+@bot.on_message(filters.command("broadcast"))
+async def broadcast(_, message: Message):
+    sent=0
+    failed=0
+    if message.from_user.id not in OWNER_ID:
+        return
+    else:
+        mukund = await message.reply("`sᴛᴀʀᴛᴇᴅ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ ᴡᴀɪᴛ👩‍💻`")
+        if not message.reply_to_message:
+            await mukund.edit("**__ɢɪᴍᴍɪ ᴀɴʏ ᴍᴇssᴀɢᴇ ᴛᴏ ɢᴄᴀsᴛ...__**")
+            return
+        devu = message.reply_to_message.text
+        async for dialog in client.iter_dialogs():
+            try:
+                await client.send_message(dialog.chat.id, devu)
+                sent = sent+1
+                await mukund.edit(f"`ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ` \n\n**sᴜᴄᴄᴇssғᴜʟʟ ɪɴ:** `{sent}` ᴄʜᴀᴛs \n**ᴜɴsᴜᴄᴄᴇssғᴜʟʟ ɪɴ:** {failed} ᴄʜᴀᴛs🗑️")
+                await asyncio.sleep(3)
+            except:
+                failed=failed+1
+        await message.reply_photo(random.choice(PHOTO), caption=f"`sᴜᴄᴄᴇsғᴜʟʟʏ ᴅᴏɴᴇ🧚‍♀️` \n\nsᴜᴄᴄᴇssғᴜʟʟ**:** `{sent}` ᴄʜᴀᴛs \n**ғᴀɪʟᴇᴅ :** {failed} ᴄʜᴀᴛs")
+
         
 @bot.on_message(filters.command("restart"))
 async def restart(_, message):
     user_id = message.from_user.id
     if user_id != OWNER_ID:
         return
-    await message.reply_text("🛠 <i>Restarting Music Player...</i>")
+    await message.reply_text("🛠 <i>ʀᴇsᴛᴀʀᴛɪɴɢ ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ...</i>")
     os.system(f"kill -9 {os.getpid()} && python3 app.py")
             
 

@@ -1,5 +1,5 @@
 # Credits Goes To Mukund...!
-# So DEAR PRO PPL DON"T EDIT THIS 
+# So don't kang it MF
 
 
 import os

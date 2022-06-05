@@ -1,6 +1,6 @@
-<h1 align = "center"> ⚡ 𝐓𝐡𝐞 𝐌𝐨𝐬𝐭 𝐏𝐨𝐰𝐞𝐫𝐟𝐮𝐥𝐥 𝐌𝐔𝐒𝐈𝐂 𝐁𝐎𝐓⚡
+<h1 align = "center"> ⚡𝑴𝑼𝑲𝑼𝑵𝑫 𝑴𝑼𝑺𝑰𝑪⚡
   
-<h4 align="center">Written With Python and Pytgcalls..</h4>
+<h4 align="center">Written With Pyrogram and Pytgcalls..</h4>
 
 <p align="center"><a href="https://t.me/LEGEND_MUKUND"><img src="https://telegra.ph/file/3f4761dc05024faa00f61.jpg" width="400"></a></p>
 

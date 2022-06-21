@@ -1,6 +1,6 @@
 # Credits Goes To Mukund...!
 # So don't kang it MF
-
+# <github.com/Legend-Mukund/Song>
 
 import os
 import glob
@@ -426,18 +426,23 @@ async def callbacks(_, cq: CallbackQuery):
         else:
             await cq.answer("[»] sᴋɪᴘᴘᴇᴅ.")
 
-@bot.on_message(filters.command("help") & filters.private)
+GROUP_BUTTONS = [ 
+    [ 
+        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/ALIEN_X_SUPPORT"),
+        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url="https://t.me/ALIEN_X_UPDATE"),
+    ],
+    [ 
+        InlineKeyboardButton(text="sᴏᴜʀᴄᴇ", url="https://github.com/Legend-Mukund/Song"),
+        InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="ok")
+    ]
+]            
+            
+@bot.on_message(filters.command("help"))
 async def help_private(_, message):
     msg = HELP_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
                              reply_markup = MUKUND_MUSIC)            
-
-@bot.on_message(filters.command("help") & filters.group)
-async def help(_, message):
-    msg = HELP_TEXT.format(message.from_user.mention)
-    await message.reply_text(text = msg,
-                             reply_markup = MUKUND_MUSIC)  
-
+ 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_private(_, message):
     msg = START_TEXT.format(message.from_user.mention)
@@ -448,7 +453,7 @@ async def start_private(_, message):
 async def start(_, message):
     msg = START_TEXT.format(message.from_user.mention)
     await message.reply_text(text = msg,
-                             reply_markup = START_BUTTONS)
+                             reply_markup = GROUP_BUTTONS)
     
 
 @bot.on_message(filters.command(["play", "vplay"]) & filters.group)
